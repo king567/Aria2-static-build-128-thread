@@ -1,0 +1,1 @@
+# aria2-v1.33.1-static-build-128-thread
