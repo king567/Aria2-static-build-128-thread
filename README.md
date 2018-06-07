@@ -15,3 +15,5 @@
 	cd Aria2-static-build-128-thread
 	chmod +x Compiler-Aria2.sh
 	sh Compiler-Aria2.sh
+
+*注意：下載完aria2原碼後，就不要更動腳本存放位置。*
