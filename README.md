@@ -8,3 +8,10 @@
 2. 自動配置編譯環境
 3. 修改16線程的限制為128線程
 4. 以四線程開始編譯
+
+### 使用方法
+
+	git clone https://github.com/king567/Aria2-static-build-128-thread.git
+	cd Aria2-static-build-128-thread
+	chmod +x Compiler-Aria2.sh
+	sh Compiler-Aria2.sh
