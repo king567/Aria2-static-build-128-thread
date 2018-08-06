@@ -148,13 +148,19 @@ else
 echo -e ${redf}"\n檔案不存在\n"${reset}
 fi
 }
+Update_script ()
+{
+wget --no-check-certificate -qO- https://raw.githubusercontent.com/king567/Aria2-static-build-128-thread/master/Compiler-Aria2.sh > $0
+echo -e ${greenf}"\n更新成功\n"${reset}
+}
 build_libs
 initializeANSI
 echo "(1).下載aria2原碼"
 echo "(2).配置aria2編譯環境"
 echo "(3).修改成128線程"
 echo "(4).開始編譯"
-read -p "請輸入選項(1-4) :" choose
+echo "(5).更新腳本"
+read -p "請輸入選項(1-5) :" choose
 case ${choose} in
    1)
 		download_aria2
@@ -172,6 +178,9 @@ case ${choose} in
 		make -j 4
 		echo -e ${greenf}"\n編譯成功\n"${reset}
 		Extract_aria2
+     ;;
+   5)
+		Update_script
      ;;
    *)
      echo "輸入錯誤選項"
