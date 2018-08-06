@@ -158,7 +158,7 @@ Tar_Gz ()
 {
 cd ~
 if [ -d "aria2-${aria2_version}-static-build-128-thread" ]; then
-tar -zcvf aria2-${aria2_version}-static-build-128-thread.tar.gz ~/aria2-${aria2_version}-static-build-128-thread
+tar -zcvf aria2-${aria2_version}-static-build-128-thread.tar.gz aria2-${aria2_version}-static-build-128-thread
 else
 echo -e ${redf}"\n檔案不存在\n"${reset}
 fi
