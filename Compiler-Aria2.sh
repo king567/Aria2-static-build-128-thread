@@ -159,7 +159,7 @@ Tar_Gz ()
 cd ~
 if [ -d "aria2-${aria2_version}-static-build-128-thread" ]; then
 tar -zcvf aria2-${aria2_version}-static-build-128-thread.tar.gz aria2-${aria2_version}-static-build-128-thread
-echo -e ${greenf}"\naria2-${aria2_version}-static-build-128-thread.tar.gz 儲存在使用者根目錄\n"${reset}
+echo -e ${greenf}"\naria2-${aria2_version}-static-build-128-thread.tar.gz 儲存在使用者家目錄\n"${reset}
 else
 echo -e ${redf}"\n檔案不存在\n"${reset}
 fi
