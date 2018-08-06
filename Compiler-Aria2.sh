@@ -135,15 +135,15 @@ esac
 }
 Extract_aria2 ()
 {
-mkdir -p ~/aria2_${aria2_version}_128thread
+mkdir -p ~/aria2-${aria2_version}-static-build-128-thread
 if [ -f "./src/aria2c" ]; then
-cp ./src/aria2c  ~/aria2_${aria2_version}_128thread
-strip -s ~/aria2_${aria2_version}_128thread/aria2c || arm-linux-gnueabihf-strip -s ~/aria2_${aria2_version}_128thread/aria2c
-echo -e ${greenf}"\n aria2c 放置在 aria2_${aria2_version}_128thread 目錄底下\n"${reset}
+cp ./src/aria2c  ~/aria2-${aria2_version}-static-build-128-thread
+strip -s ~/aria2-${aria2_version}-static-build-128-thread/aria2c || arm-linux-gnueabihf-strip -s ~/aria2-${aria2_version}-static-build-128-thread/aria2c
+echo -e ${greenf}"\n aria2c 放置在 aria2-${aria2_version}-static-build-128-thread 目錄底下\n"${reset}
 elif [ -f "./src/aria2c.exe" ]; then
-cp ./src/aria2c.exe  ~/aria2_${aria2_version}_128thread
-strip -s ~/aria2_${aria2_version}_128thread/aria2c.exe
-echo -e ${greenf}"\n aria2c.exe 放置在該使用者的home aria2_${aria2_version}_128thread 目錄底下\n"${reset}
+cp ./src/aria2c.exe  ~/aria2-${aria2_version}-static-build-128-thread
+strip -s ~/aria2-${aria2_version}-static-build-128-thread/aria2c.exe
+echo -e ${greenf}"\n aria2c.exe 放置在該使用者的home aria2-${aria2_version}-static-build-128-thread 目錄底下\n"${reset}
 else
 echo -e ${redf}"\n檔案不存在\n"${reset}
 fi
@@ -153,6 +153,16 @@ Update_script ()
 wget --no-check-certificate -qO- https://raw.githubusercontent.com/king567/Aria2-static-build-128-thread/master/Compiler-Aria2.sh > $0
 echo -e ${greenf}"\n更新成功\n"${reset}
 }
+
+Tar_Gz ()
+{
+if [ -d "~/aria2-${aria2_version}-static-build-128-thread" ]; then
+tar -zcvf aria2-${aria2_version}-static-build-128-thread.tar.gz ~/aria2-${aria2_version}-static-build-128-thread
+mv aria2-${aria2_version}-static-build-128-thread.tar.gz ~
+else
+echo -e ${redf}"\n檔案不存在\n"${reset}
+fi
+}
 build_libs
 initializeANSI
 echo "(1).下載aria2原碼"
@@ -160,7 +170,8 @@ echo "(2).配置aria2編譯環境"
 echo "(3).修改成128線程"
 echo "(4).開始編譯"
 echo "(5).更新腳本"
-read -p "請輸入選項(1-5) :" choose
+echo "(6).壓縮成發佈版本"
+read -p "請輸入選項(1-6) :" choose
 case ${choose} in
    1)
 		download_aria2
@@ -182,7 +193,10 @@ case ${choose} in
    5)
 		Update_script
      ;;
+   6)
+		Tar_Gz
+     ;;
    *)
-     echo "輸入錯誤選項"
+		echo "輸入錯誤選項"
      ;;
 esac
