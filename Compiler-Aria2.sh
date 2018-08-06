@@ -73,14 +73,14 @@ case ${platform} in
 		./${linux_build_libs}
 		wait
 		rm -rf ${linux_build_libs}
-		echo -n ${greenf}"\n配置成功\n"${reset}
+		echo -e ${greenf}"\n配置成功\n"${reset}
 		echo "配置編譯環境"
 		cd aria2-${aria2_version}
 		wget --no-check-certificate -qO- https://raw.githubusercontent.com/q3aql/aria2-static-builds/master/build-scripts/gnu-linux-config/${linux_config} > ${linux_config}
 		chmod +x ${linux_config}
 		./${linux_config}
 		rm -rf ${linux_config}
-		echo -n ${greenf}"\n配置成功\n"${reset}
+		echo -e ${greenf}"\n配置成功\n"${reset}
      ;;
    2)
 		echo "安裝相關依賴"
@@ -100,14 +100,14 @@ case ${platform} in
 		./${arm_rbpi_libs} 
 		wait
 		rm -rf ${arm_rbpi_libs} 
-		echo -n ${greenf}"\n配置成功\n"${reset}
+		echo -e ${greenf}"\n配置成功\n"${reset}
 		echo "配置編譯環境"
 		cd aria2-${aria2_version}
 		wget --no-check-certificate -qO- https://raw.githubusercontent.com/q3aql/aria2-static-builds/master/build-scripts/gnu-linux-arm-rbpi-config/${arm_rbpi_config} > ${arm_rbpi_config}
 		chmod +x ${arm_rbpi_config}
 		./${arm_rbpi_config}
 		rm -rf ${arm_rbpi_config}
-		echo -n ${greenf}"\n配置成功\n"${reset}
+		echo -e ${greenf}"\n配置成功\n"${reset}
      ;;
    3)
 		echo "安裝相關依賴"
@@ -119,14 +119,14 @@ case ${platform} in
 		./${windows_build_lib}
 		wait
 		rm -rf ${windows_build_lib}
-		echo -n ${greenf}"\n配置成功\n"${reset}
+		echo -e ${greenf}"\n配置成功\n"${reset}
 		echo "配置編譯環境"
 		cd aria2-${aria2_version}
 		wget --no-check-certificate -qO- https://raw.githubusercontent.com/q3aql/aria2-static-builds/master/build-scripts/mingw-config/${windows_config} > ${windows_config}
 		chmod +x ${windows_config}
 		./${windows_config}
 		rm -rf ${windows_config}
-		echo -n ${greenf}"\n配置成功\n"${reset}
+		echo -e ${greenf}"\n配置成功\n"${reset}
      ;;
    *)
 		echo "輸入錯誤"
@@ -139,13 +139,13 @@ mkdir -p ~/aria2_${aria2_version}_128thread
 if [ -f "./src/aria2c" ]; then
 cp ./src/aria2c  ~/aria2_${aria2_version}_128thread
 strip -s ~/aria2_${aria2_version}_128thread/aria2c || arm-linux-gnueabihf-strip -s ~/aria2_${aria2_version}_128thread/aria2c
-echo -n ${greenf}"\n aria2c 放置在 aria2_${aria2_version}_128thread 目錄底下\n"${reset}
+echo -e ${greenf}"\n aria2c 放置在 aria2_${aria2_version}_128thread 目錄底下\n"${reset}
 elif [ -f "./src/aria2c.exe" ]; then
 cp ./src/aria2c.exe  ~/aria2_${aria2_version}_128thread
 strip -s ~/aria2_${aria2_version}_128thread/aria2c.exe
-echo -n ${greenf}"\n aria2c.exe 放置在該使用者的home aria2_${aria2_version}_128thread 目錄底下\n"${reset}
+echo -e ${greenf}"\n aria2c.exe 放置在該使用者的home aria2_${aria2_version}_128thread 目錄底下\n"${reset}
 else
-echo -n ${redf}"\n檔案不存在\n"${reset}
+echo -e ${redf}"\n檔案不存在\n"${reset}
 fi
 }
 build_libs
@@ -158,19 +158,19 @@ read -p "請輸入選項(1-4) :" choose
 case ${choose} in
    1)
 		download_aria2
-		echo -n ${greenf}"\n下載成功\n"${reset}
+		echo -e ${greenf}"\n下載成功\n"${reset}
      ;;
    2)
 		set_env
      ;;
    3)
 		Thread_128
-		echo -n ${greenf}"\n修改成功\n"${reset}
+		echo -e ${greenf}"\n修改成功\n"${reset}
      ;;
    4)
 		cd aria2-${aria2_version}
 		make -j 4
-		echo -n ${greenf}"\n編譯成功\n"${reset}
+		echo -e ${greenf}"\n編譯成功\n"${reset}
 		Extract_aria2
      ;;
    *)
