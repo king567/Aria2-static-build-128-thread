@@ -21,3 +21,7 @@
 ### 已編譯完成，可以直接取用
 
 	https://github.com/king567/Aria2-static-build-128-thread/releases
+
+## 更新資訊
+
+ **2019/10/30 Release 新增v1.35.0版本**
